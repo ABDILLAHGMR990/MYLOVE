@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundtrack of Us • Spotify Edition ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Canvas Partikel Sparkle -->
+    <canvas id="ambientCanvas"></canvas>
+
+    <!-- Aurora Glow Ambient -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- ELEMEN AUDIO -->
+    <audio id="music" preload="metadata">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-wrapper">
+
+        <!-- ==============================================
+             HERO & SPOTIFY VINYL TURNTABLE
+             ============================================== -->
+        <section class="hero-section">
+            <div class="spotify-badge">
+                <span class="spotify-dot"></span> LAGU INI KHUSUS UNTUKMU • I LOVE YOU
+            </div>
+
+            <h1 class="main-title">
+                Setiap Detik Bersamamu, <br>
+                <span>Adalah Lagu Terindah.</span>
+            </h1>
+
+            <p class="typing-text" id="typing"></p>
+
+            <!-- REALISTIC VINYL RECORD TURNTABLE -->
+            <div class="turntable-container" id="turntableBtn" title="Klik piringan untuk Play/Pause">
+                <!-- Jarum Turntable (Tonearm) -->
+                <div class="tonearm-assembly" id="tonearm">
+                    <div class="tonearm-base"></div>
+                    <div class="tonearm-rod"></div>
+                    <div class="tonearm-head"></div>
+                </div>
+
+                <!-- Cover Sleeve & Piringan Vinyl -->
+                <div class="record-player-box">
+                    <div class="vinyl-sleeve">
+                        <img src="foto1.PNG" alt="Album Cover" class="sleeve-art">
+                        <div class="sleeve-shine"></div>
+                        <div class="sleeve-badge">ORIGINAL SOUNDTRACK</div>
+                    </div>
+
+                    <!-- Vinyl Disc yang Berputar -->
+                    <div class="vinyl-disc" id="vinylDisc">
+                        <div class="vinyl-groove groove-1"></div>
+                        <div class="vinyl-groove groove-2"></div>
+                        <div class="vinyl-groove groove-3"></div>
+                        <div class="vinyl-label">
+                            <img src="foto1.PNG" alt="Vinyl Label">
+                            <div class="center-spindle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="turntable-hint">
+                    <span id="turntableStatus">▶ Sentuh Piringan Untuk Memutar Lagu</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================================
+             SPOTIFY LIVE LYRICS CARD (LIRIK KARAOKE)
+             ============================================== -->
+        <section class="lyrics-section">
+            <div class="lyrics-card">
+                <div class="lyrics-header">
+                    <span class="lyrics-tag">LYRICS</span>
+                    <span class="lyrics-track-name"> • Track #1</span>
+                </div>
+                <div class="lyrics-body" id="lyricsBody">
+                    <p class="lyric-line active" data-time="0">Dulu kukira cinta itu rumit dan penuh tanda tanya...</p>
+                    <p class="lyric-line" data-time="5">Sampai akhirnya semesta mempertemukan aku denganmu.</p>
+                    <p class="lyric-line" data-time="12">Senyummu sederhana, tapi sanggup menenangkan riuhnya duniaku.</p>
+                    <p class="lyric-line" data-time="18">Nggak ada lagi lagu sedih di playlist hidupku,</p>
+                    <p class="lyric-line" data-time="25">Karena setiap nada kini mengingatkanku pada hangatnya pelukmu.</p>
+                    <p class="lyric-line" data-time="32">Terima kasih sudah memilih untuk tinggal dan bertahan bersamaku. ❤️</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================================
+             FITUR: KARTU GOSOK HADIAH CINTA (SCRATCH CARD)
+             ============================================== -->
+        <section class="scratch-section">
+            <p class="section-tag">INTERACTIVE COUPON</p>
+            <h2 class="section-title">Kupon Rahasia Untuk Kamu</h2>
+            <p class="section-subtitle">Gosok lapisan abu-abu di bawah ini dengan kursor atau jari Anda ✨</p>
+
+            <div class="scratch-container">
+                <!-- Hadiah yang Tersembunyi -->
+                <div class="scratch-reward">
+                    <div class="reward-icon">🎁</div>
+                    <h3>KUPON SPESIAL: CINTA TANPA BATAS</h3>
+                    <p>Kupon ini berlaku untuk:<br>
+                    <strong>"1x Permintaan Apa Saja & Pelukan Hangat Tanpa Batas Waktu!"</strong></p>
+                    <span class="reward-code">KODE: FOREVER-WITH-YOU-❤️</span>
+                </div>
+                <!-- Canvas yang Bisa Digosok -->
+                <canvas id="scratchCanvas" width="360" height="200"></canvas>
+            </div>
+        </section>
+
+
+        <!-- ==============================================
+             FITUR: STRUK KASIR CINTA (RECEIPTIFY STYLE)
+             ============================================== -->
+        <section class="receipt-section">
+            <div class="receipt-paper">
+                <div class="receipt-cutout"></div>
+                <div class="receipt-header">
+                    <h2>LOVE RECEIPT</h2>
+                    <p>OFFICIAL STORE OF MY HEART</p>
+                    <div class="receipt-divider">================================</div>
+                    <div class="receipt-meta">
+                        <span>ORDER: #LOVE-001</span>
+                        <span>DATE: SELAMANYA</span>
+                    </div>
+                    <div class="receipt-divider">--------------------------------</div>
+                </div>
+
+                <div class="receipt-items">
+                    <div class="receipt-row">
+                        <span>1x Senyuman Manismu</span>
+                        <span>GRATIS</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span>1000x Tawa Bersamamu</span>
+                        <span>TAK TERNILAI</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Pelukan di Hari Lelah</span>
+                        <span>UNLIMITED</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Kesabaran & Pengertian</span>
+                        <span>SELALU ADA</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Kesetiaan Tulus</span>
+                        <span>SEUMUR HIDUP</span>
+                    </div>
+                </div>
+
+                <div class="receipt-divider">================================</div>
+                <div class="receipt-total">
+                    <span>TOTAL ITEM:</span>
+                    <span>5 Momen Indah</span>
+                </div>
+                <div class="receipt-total grand-total">
+                    <span>TOTAL HARGA:</span>
+                    <span>I LOVE YOU 3000 ❤️</span>
+                </div>
+                <div class="receipt-divider">--------------------------------</div>
+
+                <div class="receipt-barcode">
+                    <div class="barcode-lines"></div>
+                    <p>THANK YOU FOR BEING MY FAVORITE PERSON</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================================
+             FITUR: OPEN WHEN... LETTERS (AMPLOP BUKA SAAT)
+             ============================================== -->
+        <section class="open-when-section">
+            <p class="section-tag">SPECIAL ENVELOPES</p>
+            <h2 class="section-title">Surat "Buka Saat..."</h2>
+            <p class="section-subtitle">Pilih salah satu amplop saat hatimu sedang membutuhkannya 💌</p>
+
+            <div class="envelope-grid">
+                <!-- Amplop 1 -->
+                <div class="when-card" data-topic="kangen">
+                    <div class="when-stamp">💌</div>
+                    <h3>Buka saat kamu lagi kangen</h3>
+                    <p>Sentuh amplop ini</p>
+                </div>
+
+                <!-- Amplop 2 -->
+                <div class="when-card" data-topic="sedih">
+                    <div class="when-stamp">🌧️</div>
+                    <h3>Buka saat kamu lagi sedih / lelah</h3>
+                    <p>Sentuh amplop ini</p>
+                </div>
+
+                <!-- Amplop 3 -->
+                <div class="when-card" data-topic="tidur">
+                    <div class="when-stamp">🌙</div>
+                    <h3>Buka saat kamu susah tidur</h3>
+                    <p>Sentuh amplop ini</p>
+                </div>
+
+                <!-- Amplop 4 -->
+                <div class="when-card" data-topic="marah">
+                    <div class="when-stamp">🤍</div>
+                    <h3>Buka saat kita lagi berantem</h3>
+                    <p>Sentuh amplop ini</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==============================================
+             POLAROID SCRAPBOOK MEMORIES
+             ============================================== -->
+        <section class="scrapbook-section">
+            <p class="section-tag">OUR MEMORIES</p>
+            <h2 class="section-title">Galeri Kenangan Polaroid</h2>
+            <p class="section-subtitle">Sentuh fotonya untuk membuka cerita di baliknya 📸</p>
+
+            <div class="polaroid-board">
+                <div class="polaroid-card tilt-1" data-title="Senyum Favoritku" data-desc="Senyuman ini yang selalu berhasil bikin lelahku hilang dalam sekejap mata.">
+                    <div class="tape-strip"></div>
+                    <div class="polaroid-inner"><img src="foto1.PNG" alt="Kenangan 1"></div>
+                    <div class="polaroid-caption"><p>Senyum termanis 🤍</p><span>01 / Forever</span></div>
+                </div>
+
+                <div class="polaroid-card tilt-2" data-title="Momen Tak Terlupakan" data-desc="Waktu terasa berhenti saat kita tertawa bersama tanpa memikirkan hal lain.">
+                    <div class="tape-strip"></div>
+                    <div class="polaroid-inner"><img src="foto2.PNG" alt="Kenangan 2"></div>
+                    <div class="polaroid-caption"><p>Duniaku berhenti ✨</p><span>02 / Forever</span></div>
+                </div>
+
+                <div class="polaroid-card tilt-3" data-title="Bahagia Sederhana" data-desc="Ternyata bahagia itu sesederhana jalan berdua dan bercerita tentang hal-hal random.">
+                    <div class="tape-strip"></div>
+                    <div class="polaroid-inner"><img src="foto3.PNG" alt="Kenangan 3"></div>
+                    <div class="polaroid-caption"><p>Tawa paling lepas 🌷</p><span>03 / Forever</span></div>
+                </div>
+
+                <div class="polaroid-card tilt-4" data-title="Selalu Ada Cerita" data-desc="Setiap sudut tempat yang kita lewati selalu punya jejak cerita hangat kita.">
+                    <div class="tape-strip"></div>
+                    <div class="polaroid-inner"><img src="foto4.PNG" alt="Kenangan 4"></div>
+                    <div class="polaroid-caption"><p>Foto cantikmu 📸</p><span>04 / Forever</span></div>
+                </div>
+
+                <div class="polaroid-card tilt-5" data-title="Rumah Hatiku" data-desc="Bukan tentang tempatnya, tapi tentang dengan siapa aku merasa pulang.">
+                    <div class="tape-strip"></div>
+                    <div class="polaroid-inner"><img src="foto5.PNG" alt="Kenangan 5"></div>
+                    <div class="polaroid-caption"><p>Tempatku pulang 🏡❤️</p><span>05 / Forever</span></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- ==============================================
+         MODAL POPUP UNIVERSAL (LIGHTBOX & SURAT)
+         ============================================== -->
+    <div class="universal-modal" id="universalModal">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" id="closeModal">×</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+
+    <!-- ==============================================
+         SPOTIFY DOCKED BOTTOM BAR (STICKY PLAYER)
+         ============================================== -->
+    <aside class="spotify-dock">
+        <div class="spotify-dock-inner">
+            <div class="spotify-track-info">
+                <div class="album-thumb" id="albumThumb">
+                    <img src="foto1.PNG" alt="Album Art">
+                </div>
+                <div class="track-details">
+                    <div class="song-title">Soundtrack of Us</div>
+                    <div class="song-artist">Our Special Story • Spotify Exclusive</div>
+                </div>
+                <button class="spotify-like-btn" id="spotifyLike" title="Like">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="spotify-controls-wrap">
+                <div class="spotify-buttons">
+                    <button class="ctrl-btn sub-btn" id="btnShuffle">🔀</button>
+                    <button class="ctrl-btn sub-btn" id="btnPrev">⏮</button>
+                    <button class="ctrl-btn play-main-btn" id="btnPlayPause">
+                        <span id="playIcon">▶</span>
+                    </button>
+                    <button class="ctrl-btn sub-btn" id="btnNext">⏭</button>
+                    <button class="ctrl-btn sub-btn" id="btnLoop">🔁</button>
+                </div>
+                <div class="playback-bar">
+                    <span class="time-display" id="currentTime">0:00</span>
+                    <div class="progress-bar-container" id="progressBarContainer">
+                        <div class="progress-bar-fill" id="progressBarFill">
+                            <div class="progress-handle"></div>
+                        </div>
+                    </div>
+                    <span class="time-display" id="totalDuration">0:00</span>
+                </div>
+            </div>
+
+            <div class="spotify-extra-wrap">
+                <div class="equalizer-bars" id="equalizer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="spotify-tag-logo">
+                    <span>Playing on Spotify</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="site-footer">
+        Tetap semangat buatmu dan jangan menyerah • Happy Listening ❤️
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
